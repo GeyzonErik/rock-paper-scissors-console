@@ -13,7 +13,13 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    return prompt(`Say: ${options.map(options => ` ${options}`)}. \nYou have: ${gameInfos.turnsLeft + 1} rounds left`).toLowerCase()
+    let playerSelected = prompt(`Say: ${options.map(options => ` ${options}`)}. \nYou have: ${gameInfos.turnsLeft + 1} rounds left`).toLowerCase();
+
+    while(!playerSelected || (playerSelected != 'rock' && playerSelected != 'paper' && playerSelected != 'scissor')){
+        alert("Round not valid \nPlease type an option");
+        playerSelected = prompt(`Say: ${options.map(options => ` ${options}`)}. \nYou have: ${gameInfos.turnsLeft + 1} rounds left`).toLowerCase();
+    }
+    return playerSelected;
 }
 
 function playRound() {
